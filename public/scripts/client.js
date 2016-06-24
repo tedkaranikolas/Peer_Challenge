@@ -1,6 +1,10 @@
 var myApp=angular.module( 'myApp', []);
 
+
+
 myApp.controller( 'createAssignment', ['$scope', '$http', function($scope, $http){
+
+populatePage();
 
   $scope.addRecord = function(){
     var assignmentObject = {
@@ -16,17 +20,22 @@ myApp.controller( 'createAssignment', ['$scope', '$http', function($scope, $http
     url: '/postAssignment',
     data: assignmentObject,
 
-  }).then( function(){
-    $http({
-      method: 'GET',
-      url: '/getAssignment'
-    }).then(function(response){
-      $scope.allTheAssignments = response;
-    })
-  });
+  }).then(populatePage() );
   //clear input values
   $scope.assignmentIn = '';
   $scope.studentNameIn = '';
   $scope.scoreIn = '';
   };
+
+  var populatePage = function(response){
+      $http({
+        method: 'GET',
+        url: '/getAssignment'
+      }).then(function(response){
+
+      $scope.allTheAssignments = response.student_name;
+    });
+  }
+
+
 }]);
