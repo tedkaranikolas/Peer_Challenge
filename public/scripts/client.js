@@ -27,13 +27,15 @@ populatePage();
   $scope.scoreIn = '';
   };
 
-  var populatePage = function(response){
+  function populatePage(){
       $http({
         method: 'GET',
         url: '/getAssignment'
       }).then(function(response){
 
-      $scope.allTheAssignments = response.student_name;
+      $scope.studentNameOut = response.student_name;
+      $scope.assignmentOut = response.score;
+      $scope.submitOut = response.date_completed;
     });
   }
 

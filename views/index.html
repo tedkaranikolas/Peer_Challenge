@@ -13,7 +13,20 @@
       <input type="text" name="scoreIn" value="" ng-model="scoreIn" placeholder="Score">
       <button type="button" name="submitIn" ng-click="addRecord()">Submit</button>
 
-      <div ng-repeat="students in allTheAssignments">{{allTheAssignments}}</div>
+
+      <table>
+        <tr>
+          <th>Student</th>
+          <th>Score</th>
+          <th>Submitted</th>
+        </tr>
+        <tr ng-repeat="students in allTheAssignments">
+          <td ng-model="studentNameOut"></td>
+          <td ng-model="scoreOut"></td>
+          <td ng-model="submitOut"></td>
+        </tr>
+      </table>    
+
     </div>
   </body>
 </html>
