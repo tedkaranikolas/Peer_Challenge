@@ -3,7 +3,7 @@ var Schema = mongoose.Schema;
 
 var userSchema = new Schema({
   assignment_number: Number,
-  student_name: {type: String, unique: true},
+  student_name: {type: String}, //, unique: true
   score: Number,
   date_completed: Date
 });

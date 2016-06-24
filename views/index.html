@@ -1,10 +1,19 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="myApp">
   <head>
     <meta charset="utf-8">
     <title>Peer Challenge</title>
+    <script type="text/javascript" src="vendors/angular.min.js"></script>
+    <script type="text/javascript" src="scripts/client.js" charset="utf-8"></script>
   </head>
   <body>
+    <div ng-controller="createAssignment">
+      <input type="text" name="studentNameIn" ng-model="studentNameIn" value="" placeholder="Student Name">
+      <input type="text" name="assignmentIn" ng-model="assignmentIn" value="" placeholder="Assignment">
+      <input type="text" name="scoreIn" value="" ng-model="scoreIn" placeholder="Score">
+      <button type="button" name="submitIn" ng-click="addRecord()">Submit</button>
 
+      <div ng-repeat="students in allTheAssignments">{{allTheAssignments}}</div>
+    </div>
   </body>
 </html>
