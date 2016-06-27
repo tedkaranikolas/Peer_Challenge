@@ -37,6 +37,6 @@ myApp.controller( 'createAssignment', ['$scope', '$http', function($scope, $http
       // $scope.assignmentOut = response.score;
       // $scope.submitOut = response.date_completed;
     });
-  //  populatePage();
   };
+  $scope.populatePage();
 }]);
