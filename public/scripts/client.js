@@ -3,8 +3,9 @@ var myApp=angular.module( 'myApp', []);
 
 
 myApp.controller( 'createAssignment', ['$scope', '$http', function($scope, $http){
-
+  $scope.allTheRecords = [];
 //$scope.populatePage();
+//populatePage();
 
   $scope.addRecord = function(){
     var assignmentObject = {
@@ -18,9 +19,8 @@ myApp.controller( 'createAssignment', ['$scope', '$http', function($scope, $http
   $http({
     method: 'POST',
     url: '/postAssignment',
-    data: assignmentObject,
-
-  }).then(populatePage() );
+    data: assignmentObject
+  });//.then(populatePage() );
   //clear input values
   $scope.assignmentIn = '';
   $scope.studentNameIn = '';
@@ -33,10 +33,10 @@ myApp.controller( 'createAssignment', ['$scope', '$http', function($scope, $http
         url: '/getAssignment'
       }).then(function(response){
       $scope.allTheRecords = response.data;
-      console.log(response.data);
+      console.log(response);
       // $scope.assignmentOut = response.score;
       // $scope.submitOut = response.date_completed;
     });
+  //  populatePage();
   };
-
 }]);

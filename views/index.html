@@ -11,18 +11,19 @@
       <input type="text" name="studentNameIn" ng-model="studentNameIn" value="" placeholder="Student Name">
       <input type="text" name="assignmentIn" ng-model="assignmentIn" value="" placeholder="Assignment">
       <input type="text" name="scoreIn" value="" ng-model="scoreIn" placeholder="Score">
-      <button type="button" name="submitIn" ng-click="addRecord()" onclick="window.location.reload();">Submit</button>
+      <button type="button" name="submitIn" ng-click="addRecord();">Submit</button>
+      <button type="button" name="getRecords" ng-click="populatePage();">Get Records</button>
 
       <table>
         <tr>
           <th>Student</th>
           <th>Score</th>
-          <th>Submitted</th>
+          <th>Assignment Submitted</th>
         </tr>
-        <tr ng-repeat="students in allTheRecords">
-          <td>{{students.studentNameOut}}</td>
-          <td>{{students.scoreOut}}</td>
-          <td>{{students.submitOut}}</td>
+        <tr ng-repeat="student in allTheRecords">
+          <td>{{student.student_name}}</td>
+          <td>{{student.score}}</td>
+          <td>{{student.assignment_number}}</td>
         </tr>
       </table>
 

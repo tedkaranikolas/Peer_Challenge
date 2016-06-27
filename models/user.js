@@ -8,9 +8,6 @@ var userSchema = new Schema({
   date_completed: Date
 });
 
-// first param is the collection name
-// second param is the schema you created above
-// Reminder: mongo/mongoose will lowercase and pluralize for you.
 var User = mongoose.model('users', userSchema);
 
 module.exports = User;
